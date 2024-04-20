@@ -58,11 +58,11 @@
         transform-origin: center center;
         transform-style: preserve-3d;
         image-rendering: crisp-edges;
-        animation: hue-rotate 5s linear  infinite;
-
+        animation: hue-rotate 5s linear infinite;
     }
 
-    .logo-container:hover img {
+    .logo-container:hover img,
+    .logo-container.active img {
         transform: scale(1.07);
     }
 
@@ -70,7 +70,6 @@
         0% { filter: hue-rotate(0deg); }
         100% { filter: hue-rotate(360deg); }
     }
-
 
     .coming-soon {
         color: rgba(0, 0, 0, 0.85);
@@ -94,19 +93,19 @@
     }
 
     .social-links a {
-        margin-right: 10px;  
+        margin-right: 10px;
         color: rgba(0, 0, 0, 0.85);
-        margin-left: 10px;   
+        margin-left: 10px;
         text-decoration: none;
     }
 
     .social-links i {
-        font-size: 1.5rem;  
+        font-size: 1.5rem;
     }
 </style>
 </head>
 <body>
-<div class="logo-container">
+<div class="logo-container" onclick="toggleTouchEffect()">
     <img src="./logo.svg" alt="Logo">
 </div>
 <div class="coming-soon">
@@ -120,5 +119,11 @@
         </a>
     </div>
 </div>
+<script>
+    function toggleTouchEffect() {
+        const logoContainer = document.querySelector('.logo-container');
+        logoContainer.classList.toggle('active');
+    }
+</script>
 </body>
 </html>
