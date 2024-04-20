@@ -52,17 +52,21 @@
     }
 
     .logo-container img {
-        width: 85%;
+        width: 80%;
         height: auto;
         transition: transform 0.15s ease-in-out;
         transform-origin: center center;
         transform-style: preserve-3d;
         image-rendering: crisp-edges;
-        animation: hue-rotate 5s linear infinite;
+        animation: hue-rotate 5s linear  infinite;
+
     }
 
-    .logo-container:hover img,
-    .logo-container.active img {
+    .logo-container img:hover {
+        transform: scale(1.07);
+    }
+
+    .logo-container.logo-container img:touch {
         transform: scale(1.07);
     }
 
@@ -70,6 +74,7 @@
         0% { filter: hue-rotate(0deg); }
         100% { filter: hue-rotate(360deg); }
     }
+
 
     .coming-soon {
         color: rgba(0, 0, 0, 0.85);
@@ -93,19 +98,19 @@
     }
 
     .social-links a {
-        margin-right: 10px;
+        margin-right: 10px;  
         color: rgba(0, 0, 0, 0.85);
-        margin-left: 10px;
+        margin-left: 10px;   
         text-decoration: none;
     }
 
     .social-links i {
-        font-size: 1.5rem;
+        font-size: 1.5rem;  
     }
 </style>
 </head>
 <body>
-<div class="logo-container" ontouchstart="addTouchEffect()" ontouchend="removeTouchEffect()">
+<div class="logo-container">
     <img src="./logo.svg" alt="Logo">
 </div>
 <div class="coming-soon">
@@ -119,16 +124,5 @@
         </a>
     </div>
 </div>
-<script>
-    function addTouchEffect() {
-        const logoContainer = document.querySelector('.logo-container');
-        logoContainer.classList.add('active');
-    }
-
-    function removeTouchEffect() {
-        const logoContainer = document.querySelector('.logo-container');
-        logoContainer.classList.remove('active');
-    }
-</script>
 </body>
 </html>
