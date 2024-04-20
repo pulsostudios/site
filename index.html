@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Animation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #f4f4f4;
+        font-family: 'Jersey 15', sans-serif;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        width: 5000vb;
+        height: 400vb;
+        background-image: url('./icon.svg');
+        background-size: calc(100px + 20px) calc(100px + 10px);
+        background-repeat: repeat space;
+        animation: scrollBackground 10s linear infinite;
+        transform: rotate(-45deg);
+        opacity: 0.060;
+        z-index: 0;
+    }
+
+    @keyframes scrollBackground {
+        0% { background-position: 0 0; }
+        100% { background-position: 120px -120px; }
+    }
+
+    .logo-container {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 500px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .logo-container img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.15s ease-in-out;
+        transform-origin: center center;
+        transform-style: preserve-3d;
+        image-rendering: crisp-edges;
+        animation: hue-rotate 5s linear  infinite;
+
+    }
+
+    .logo-container:hover img {
+        transform: scale(1.07);
+    }
+
+    @keyframes hue-rotate {
+        0% { filter: hue-rotate(0deg); }
+        100% { filter: hue-rotate(360deg); }
+    }
+
+
+    .coming-soon {
+        color: rgba(0, 0, 0, 0.85);
+        font-size: 30px;
+        margin-top: 20px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px 20px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-links {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        color: #333;
+        align-items: center;
+    }
+
+    .social-links a {
+        margin-right: 10px;  
+        color: rgba(0, 0, 0, 0.85);
+        margin-left: 10px;   
+        text-decoration: none;
+    }
+
+    .social-links i {
+        font-size: 1.5rem;  
+    }
+</style>
+</head>
+<body>
+<div class="logo-container">
+    <img src="./logo.svg" alt="Logo">
+</div>
+<div class="coming-soon">
+    Coming soon!
+    <div class="social-links">
+        <a href="https://github.com/pulsostudios" class="social-link">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:hello@pulsostudios.com" class="social-link">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+</div>
+</body>
+</html>
